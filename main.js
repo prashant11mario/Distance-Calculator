@@ -39,7 +39,28 @@ function calcRoute() {
             var farefull =fare.replace(/\,/g,'');
             farefull = parseInt(farefull,10);
             var act = farefull * 1.6;
-            taxifare.innerHTML="<div class='totalfare-area'><h1>Fare for your Ride</h1><br><div class='fare'> "+act+"</div>";
+            var vct = act.toFixed(2);
+            var km = act;
+            var vfare=0;
+
+            if( km <= 10){
+                vfare += 5 * km;
+            }
+            if( km > 10){
+                vfare += 5 * 10;
+                km = km - 10;
+                console.log(vfare);
+                if( km >= 20){
+                    vfare +=2 *20;
+                    km = km -20;
+                    console.log(vfare);
+                    if(km > 0){
+                        vfare +=+ 1* km;
+                    }
+                }
+            }
+
+            taxifare.innerHTML="<div class='totalfare-area'><h1>Fare for your Ride</h1><br><div class='fare'>Total Distance in km "+vct+"<br>Total price in Rupees "+ vfare+"<br>Note:- Rs5/km for the first 10km, Rs2/km for the next 20, and Rs1/km after that</div>";
             
             //console.log(farefull)
 
