@@ -1,6 +1,13 @@
 /*styling.css*/
 /*add font family, background image*/
 
+
+.form-horizontal, .col-xs-offset-2{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 body {
   color: #5bc0de;
   font-family: "Poppins", sans-serif;
